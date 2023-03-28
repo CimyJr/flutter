@@ -9,9 +9,10 @@ class Resposta extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
+
       onPressed: quandoSelecionado,
       child: Text(resposta),
-      style: TextButton.styleFrom(backgroundColor: Colors.deepPurple,),
+      style: TextButton.styleFrom(backgroundColor: Colors.deepPurple, fixedSize: Size(1000, 10)),
 
     );
   }
