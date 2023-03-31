@@ -19,7 +19,7 @@ class _PerguntaAppState extends State<PerguntaAPP> {
     final List<Map> perguntas = [
       {
         'texto': "Qual sua cor favorita?",
-        'resposta': ['Preto', 'Vermelho', 'Verde', 'Branco']
+        'resposta': ['Preto', 'red', 'Verde', 'Branco']
       },
       {
         'texto': "Qual seu animal favorito?",
