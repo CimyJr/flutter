@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import './questao.dart';
 import './resposta.dart';
+import './resultado.dart';
 
 main() => runApp(PerguntaAPP());
 
@@ -48,12 +49,12 @@ final List<Map> _perguntas = const [
           appBar: AppBar(
             title: const Text("Perguntas"),
           ),
-          body: Column(
+          body: temPerguntaSelecionada ? Column(
             children: [
               Questao(_perguntas[_perguntaSelecionada]['texto']),
               ...respostas.map((t) => Resposta(t, _responder)).toList(),
-            ],
-          )),
+             ],
+          ):Resultado() ),
     );
   }
 }
