@@ -9,15 +9,30 @@ class _PerguntaAppState extends State<PerguntaAPP> {
   final List<Map<String, Object>> _perguntas = const [
     {
       'texto': "Qual sua cor favorita?",
-      'resposta': ['Preto', 'vermelho ', 'Verde', 'Branco']
+      'resposta': [
+        {'texto': 'Preto', 'nota': 10},
+        {'texto': 'vermelho ', 'nota': 5},
+        {'texto': 'Verde', 'nota': 3},
+        {'texto': 'Branco', 'nota': 1},
+      ]
     },
     {
       'texto': "Qual seu animal favorito?",
-      'resposta': ['Coelho', 'Cobra', 'Elefante', 'Macaco']
+      'resposta': [
+        {'texto': 'Coelho', 'nota': 3},
+        {'texto': 'Cobra', 'nota': 10},
+        {'texto': 'Elefante', 'nota': 1},
+        {'texto': 'Macaco', 'nota': 5},
+      ]
     },
     {
       'texto': "Qual seu instrutor preferido",
-      'resposta': ['Maria', 'João', 'Pedro', 'Leo']
+      'resposta': [
+        {'texto':'Maria', 'nota': 5},
+        {'texto':'João', 'nota': 1},
+        {'texto':'Pedro', 'nota': 10},
+        {'texto':'Leo', 'nota': 3},
+      ]
     },
   ];
 
@@ -28,7 +43,7 @@ class _PerguntaAppState extends State<PerguntaAPP> {
     // print('Pergunta respondida :D');
   }
 
-   bool get temPerguntaSelecionada {
+  bool get temPerguntaSelecionada {
     return _perguntaSelecionada < _perguntas.length;
   }
 
