@@ -6,6 +6,7 @@ main() => runApp(PerguntaAPP());
 
 class _PerguntaAppState extends State<PerguntaAPP> {
   int _perguntaSelecionada = 0;
+  int _pontuacaoTotal = 0;
   final List<Map<String, Object>> _perguntas = const [
     {
       'texto': "Qual sua cor favorita?",
@@ -28,19 +29,20 @@ class _PerguntaAppState extends State<PerguntaAPP> {
     {
       'texto': "Qual seu instrutor preferido",
       'resposta': [
-        {'texto':'Maria', 'nota': 5},
-        {'texto':'João', 'nota': 1},
-        {'texto':'Pedro', 'nota': 10},
-        {'texto':'Leo', 'nota': 3},
+        {'texto': 'Maria', 'nota': 5},
+        {'texto': 'João', 'nota': 1},
+        {'texto': 'Pedro', 'nota': 10},
+        {'texto': 'Leo', 'nota': 3},
       ]
     },
   ];
 
-  void _responder() {
+  void _responder(int pontuacao) {
     setState(() {
       _perguntaSelecionada++;
+      _pontuacaoTotal += pontuacao;
     });
-    // print('Pergunta respondida :D');
+     print(_pontuacaoTotal);
   }
 
   bool get temPerguntaSelecionada {
@@ -64,7 +66,7 @@ class _PerguntaAppState extends State<PerguntaAPP> {
                   perguntas: _perguntas,
                   perguntaSelecionada: _perguntaSelecionada,
                   responder: _responder)
-              : Resultado()),
+              : Resultado(pontuacao: _pontuacaoTotal)),
     );
   }
 }

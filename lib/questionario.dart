@@ -10,13 +10,8 @@ class Questionario extends StatelessWidget {
       required this.responder});
   final List<Map<String, Object>> perguntas;
   final int perguntaSelecionada;
-  final void Function() responder;
+  final void Function(int) responder;
 
-  /*Questionario({super.key, 
-    required this.perguntas,
-    required this.perguntaSelecionada,
-    required this.responder,
-    })*/
 
   bool get temPerguntaSelecionada {
     return perguntaSelecionada < perguntas.length;
@@ -32,7 +27,7 @@ class Questionario extends StatelessWidget {
       children: [
         Questao(perguntas[perguntaSelecionada]['texto'] as String),
         ...respostas
-        .map((resp) => Resposta(resp['texto'] as String, responder)).toList(),
+        .map((resp) => Resposta(resp['texto'] as String, (() => responder(int.parse(resp['nota'].toString()))))),
       ],
     );
   }
