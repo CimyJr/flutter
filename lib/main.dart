@@ -42,7 +42,14 @@ class _PerguntaAppState extends State<PerguntaAPP> {
       _perguntaSelecionada++;
       _pontuacaoTotal += pontuacao;
     });
-     print(_pontuacaoTotal);
+    print(_pontuacaoTotal);
+  }
+
+  void _reiniciarQuestionario() {
+    setState(() {
+      _perguntaSelecionada = 0;
+      _pontuacaoTotal = 0;
+    });
   }
 
   bool get temPerguntaSelecionada {
@@ -57,6 +64,7 @@ class _PerguntaAppState extends State<PerguntaAPP> {
 
     return MaterialApp(
       darkTheme: ThemeData.dark(),
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
           appBar: AppBar(
             title: const Text("Perguntas"),
@@ -66,7 +74,7 @@ class _PerguntaAppState extends State<PerguntaAPP> {
                   perguntas: _perguntas,
                   perguntaSelecionada: _perguntaSelecionada,
                   responder: _responder)
-              : Resultado(pontuacao: _pontuacaoTotal)),
+              : Resultado(pontuacao: _pontuacaoTotal, quandoReiniciarQuestionario: _reiniciarQuestionario)),
     );
   }
 }
